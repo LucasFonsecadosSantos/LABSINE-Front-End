@@ -1,0 +1,603 @@
+///////////////////////////////////////////////////////////////////////////////////
+///                                                                             ///
+///                                                                             ///
+///                                                                             ///
+///                                                                             ///
+///   Project by:                                                               ///
+///    _      _____ ______    _____ ____  __  __ _____        _   ___     __    ///
+///   | |    / ____|  ____|  / ____/ __ \|  \/  |  __ \ /\   | \ | \ \   / /    ///
+///   | |   | |    | |__    | |   | |  | | \  / | |__) /  \  |  \| |\ \_/ /     ///
+///   | |   | |    |  __|   | |   | |  | | |\/| |  ___/ /\ \ | . ` | \   /      ///
+///   | |___| |____| |      | |___| |__| | |  | | |  / ____ \| |\  |  | |       ///
+///   |______\_____|_|       \_____\____/|_|  |_|_| /_/    \_\_| \_|  |_|       ///
+///   Assessoria em tecnologia e marketing.                                     ///
+///                                                                             ///
+///                                                                             ///
+///                                                                             ///
+///                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////
+///                                                                             ///
+/// [PROJECT]: Name: labsine - Laboratório de Sistemas Inteligentes.             ///
+///            URL:  www.labsine.ufla.br                                         ///
+///            GIT:  <Link não disponivel. GIT server privado>                  ///
+/// +-------------------------------------------------------------------------+ ///
+///                                                                             ///
+/// [DEVELOPMENT]:  Code Developer:   Lucas Fonseca dos Santos.                 ///
+///                 System Developer: Lucas Fonseca dos Santos.                 ///
+///                 Design Creater:   Lucas Fonseca dos Santos.                 ///
+///                 Tester:           Lucas Fonseca dos Santos.                 ///
+/// +-------------------------------------------------------------------------+ ///
+///                                                                             ///
+/// [INFORMATIONS]: Fonts:  Ubuntu, 300, 400, 500, 700                          ///
+///                         Open Sans, 300, 400, 600, 700                       ///
+///                         Open Sans Condensed, 300, 700                       ///
+///                 Colors: #000000                                             ///
+///                         #000000                                             ///
+///                         #000000                                             ///
+///                         #000000                                             ///
+/// +-------------------------------------------------------------------------+ ///
+///                                                                             ///
+///   Use .content to write class .container by bootstrap and .line to write    ///
+///   .row class by bootstrap.                                                  ///
+///                                                                             ///
+///   Use mixin extend_grid() with the params: LG value, MD value, SM value,    ///
+///   XS value in respective order to extend grid system of bootstrap.          ///
+///                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+///                              FILE INFORMATION                               ///
+///-----------------------------------------------------------------------------///
+/// [NAME]: Core                                                                ///
+/// [CONTENT]: Responsible for all front end struct.                            ///
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+*
+   font-size: 100%
+   margin: 0px auto
+   padding: 0px
+
+
+
+
+
+body
+   overflow-x: hidden
+
+
+
+
+//----------------------------------[ IMPORTS ]----------------------------------//
+@import "libs/_bootstrap.scss"
+@import "variables.sass"
+@import "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:300,400,600,700|Ubuntu:300,400,500,700"
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ MIXINS ]-----------------------------------//
+@mixin transform_translateX($param)
+   transform: translateX($param)
+   -o-transform: translateX($param)
+   -ms-transform: translateX($param)
+   -moz-transform: translateX($param)
+   -webkit-transform: translateX($param)
+
+@mixin transform_translateY($param)
+   transform: translateY($param)
+   -o-transform: translateY($param)
+   -ms-transform: translateY($param)
+   -moz-transform: translateY($param)
+   -webkit-transform: translateY($param)
+
+@mixin border_radius($param)
+   border-radius: $param
+   -o-border-radius: $param
+   -ms-border-radius: $param
+   -moz-border-radius: $param
+   -webkit-border-radius: $param
+
+@mixin gradient_background($param1, $param2, $param3)
+   background: $param2
+   linear-gradient($param1, $param2 , $param3)
+   -o-linear-gradient($param1, $param2 , $param3)
+   -ms-linear-gradient($param1, $param2 , $param3)
+   -moz-linear-gradient($param1, $param2 , $param3)
+   -webkit-linear-gradient($param1, $param2 , $param3) 
+
+@mixin horizontal_div_divider_1($param1, $param2)
+   border-bottom: 100vh $param1 solid
+   border-top: 0vh solid transparent 
+   border-right: $param2 20vw solid
+   border-left: 0px $param2 solid
+
+@mixin horizontal_div_divider_2($param1, $param2)
+   border-bottom: 0vh solid transparent
+   border-top: 100vh $param1 solid
+   border-right: 0px $param2 solid
+   border-left: $param2 20vw solid
+
+@mixin filter($param)
+   filter: $param
+   -o-filter: $param
+   -ms-filter: $param
+   -moz-filter: $param
+   -webkit-filter: $param
+
+@mixin responsive_system($param1, $param2, $param3, $param4)
+   @extend .col-lg-#{$param1}
+   @extend .col-md-#{$param2}
+   @extend .col-sm-#{$param3}
+   @extend .col-xs-#{$param4}
+//-------------------------------------------------------------------------------//
+
+
+
+
+//------------------------------------[ FONTS ]----------------------------------//
+h1
+   font:
+      family: $_title
+      size: $_size_h1
+      weight: 300
+   color: $_blue
+h2
+   font:
+      family: $_title
+      size: $_size_h2
+      weight: 800
+   color: $_blue
+   margin: 0px !important
+   &:first-letter
+      text-transform: uppercase
+h3
+   font:
+      family: $_title
+      size: $_size_h3 !important
+      weight: 400
+   color: $_blue
+   text-align: center
+h4
+   font:
+      family: $_title
+      size: $_size_h4
+      weight: 800
+   color: $_white
+   text-align: center
+h5
+p 
+   color: $_carbon
+   font:
+      family: $_text1
+      weight: 400
+      size: $_size_p
+label
+a
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//-----------------------------------[ FORMS ]-----------------------------------//
+input
+button
+   @extend .transitions
+   background: transparent 
+   border: solid 3px #FFF //#381f75
+   @include border_radius(8px)
+   padding: 5%
+   outline: none
+   cursor: pointer
+   text-transform: uppercase
+   font:
+      family: $_title
+      color: $_white
+      size: $_font_button_size
+      weight: 400
+   &:hover
+      @extend .transitions
+      border: solid 5px #381f75
+      
+      
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ SUPERCLASS ]-------------------------------//
+.transitions
+   transition:          $animation_time
+   -o-transition:       $animation_time
+   -ms-transition:      $animation_time
+   -moz-transition:     $animation_time
+   -webkit-transition:  $animation_time
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ UNIVERSAL ]--------------------------------//
+//Class
+.content
+   @extend .container
+
+.line
+   @extend .row
+
+.titleSection
+   @extend .line
+   @extend .text-left
+   margin: 0px !important
+   padding: 0px 0px 2% 0px !important
+
+.blue
+   color: $_blue !important
+
+.white 
+   color: $_white !important
+
+.black 
+   color: $_black !important
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ SECTIONS ]---------------------------------//
+
+//+++++++++++++++++++++Header++++++++++++++++++++++//
+header
+   height: auto
+   min-height: #{$_heigh_header}vh
+   overflow: hidden
+   .header01
+      img
+         z-index: 100 !important
+         position: absolute
+         @extend .img-responsive
+         &:first-child
+            width: 30% !important
+            top: 10% !important
+            left: 35% !important
+            @include transform_translateX(35%)
+            @include transform_translateY(10%)
+         &:last-child
+            @extend .transitions
+            width: 3% !important
+            transform: rotate(90deg)
+            top: 75% !important
+            left: 49% !important
+            &:hover
+               @extend .transitions
+               cursor: pointer
+               //width: 3.3%
+               top: 76%
+
+   .navigator
+      margin: 0px !important
+      @include border_radius(0px)
+      z-index: 101 !important
+      border: 0px
+      background: transparent
+      .firstMenu
+         background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+         background: linear-gradient(to left, #C33764 , #1D2671) !important
+         background: #C33764
+         border-bottom-left-radius: $_radius_size !important
+         border-bottom-right-radius: $_radius_size !important
+         li
+            a 
+               color: $_white !important
+      .menuSecond
+         background: transparent !important
+      .menuSecond2
+         background: #C33764 !important
+         background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+         background: linear-gradient(to left, #C33764 , #1D2671) !important
+      .navbar-brand
+         width: 150px
+         background: 
+            image: url('../../img/header/logo.png')
+            size: 70%
+            position: center 
+            repeat: no-repeat
+      li
+         a 
+            font:
+               family: $_title
+            text-transform: uppercase
+            color: #CB3066 !important
+
+   
+   canvas
+      height: auto
+      display: block
+      min-height: #{$_heigh_header}vh
+      vertical-align: bottom
+      position: relative
+      background: #8e9eab
+      background: -webkit-linear-gradient(to left, #8e9eab , #eef2f3)
+      background: linear-gradient(to left, #8e9eab , #eef2f3)
+      z-index: 99 !important
+//++++++++++++++++++End of header++++++++++++++++++//
+
+//+++++++++++++++++++++Footer++++++++++++++++++++++//
+footer
+   height: auto
+   min-height: 600px
+   background: #360033
+   background: -webkit-linear-gradient(to left, #360033 , #0b8793)
+   background: linear-gradient(to left, #360033 , #0b8793)
+
+.copyright
+   padding: 5px
+   width: 100%
+   z-index: 1000
+   position: relative !important
+   bottom: 0px !important
+   @extend .text-center
+   color: $_white !important
+   background: #606c88
+   background: -webkit-linear-gradient(to left, #606c88 , #3f4c6b)
+   background: linear-gradient(to left, #606c88 , #3f4c6b)
+        
+//++++++++++++++++++End of Footer++++++++++++++++++//
+
+//+++++++++++++++++++++Index01+++++++++++++++++++++//
+#index01
+   @extend .row
+   height: auto
+   min-height: #{$_heigh_index01}vh
+   //.divideIndex01
+      @include responsive_system(2,2,2,2)
+      height: 100vh
+      border-top: 100vh solid $_white
+      border-left: 0px solid $_white
+      border-botom: 49vh solid #f00 !important
+      z-index: 100
+      border-right: 200px solid #000
+   .subIndex01
+      height: #{$_heigh_index01}vh
+      @include responsive_system(6,6,6,6) 
+      img
+         @extend .img-responsive
+         width: 60%
+         @include transform_translateY(90%)
+      &:first-child
+         z-index: 80
+         background: #1D2671
+         @include horizontal_div_divider_1(#1D2671,$_white)
+         
+      &:last-child 
+         background: $_white
+         z-index: 100
+         div
+            @extend .line
+            @include transform_translateY(190%)
+            padding-right: 10%
+//+++++++++++++++++++++End of Index01++++++++++++++//
+
+//+++++++++++++++++++++++Index Vish++++++++++++++++//
+#indexVish
+   @extend .row
+   height: auto
+   min-height: #{$_heigh_index01}vh
+   .subIndexVish
+      height: #{$_heigh_index01}vh 
+      img
+         @extend .img-responsive
+         width: 60%
+         @include transform_translateY(-200%)
+      &:first-child
+         @include responsive_system(6,6,6,12)
+         background: $_white
+         z-index: 100
+         border: none
+         div
+            @extend .line
+            @include transform_translateY(100%)
+            padding-right: 10%
+         padding: 0 0 0 5% !important
+         p 
+            &:first-letter
+               margin-left: 40px
+      &:last-child 
+         z-index: 80
+         background: #1D2671
+         @include horizontal_div_divider_2(#1D2671,$_white)
+         @include responsive_system(6,6,6,6)
+         @extend .hidden-xs
+//++++++++++++++++++++End of Index Vish++++++++++++//
+
+//+++++++++++++++++++++++++Index02+++++++++++++++++//
+#index02
+   @extend .line
+   height: auto
+   min-height: #{$_heigh_index02}vh
+   padding: $_padding_default
+   .line
+      .subIndex02
+         @include responsive_system(3,3,6,12)
+         @extend .text-center
+         height: 50vh
+         z-index: 1
+         //padding: $_padding_default
+         h2
+            @include transform_translateY(10%)
+         .projectCell
+            @extend .transitions
+            background: #673AB7
+            background: -webkit-linear-gradient(to right, #512DA8, #673AB7)
+            background: linear-gradient(to right, #512DA8, #673AB7)
+            position: relative
+            width:  80%
+            height: 400px
+            z-index: 10
+            overflow: hidden
+            .informations
+               width: 80%
+               position: absolute
+               left: 10%
+               bottom: 0%
+               h3
+                  height: 58px !important
+                  margin-bottom: 6% !important
+                  overflow: hidden
+               button
+                  
+            .avatarProject
+               padding: none
+               position: absolute
+               width: 100%
+               height: 200px
+               overflow: hidden
+               background:
+                  color: transparent
+                  position: center
+                  size: cover !important
+                  repeat: no-repeat
+               //border-right: solid transparent 380px
+               
+               
+            h4
+               @include transform_translateY(300%)
+      .project_01
+         background: url('../../img/index03/#{$_project_01}')
+         &:hover
+            
+      .auxPadding
+         padding: 2% 3% 2% 2%
+//+++++++++++++++++++++End of Index02++++++++++++++//
+
+//+++++++++++++++++++++++Index03+++++++++++++++++++//
+#index03
+   height: auto
+   //min-height: #{$_heigh_index03}vh
+   padding: $_padding_default
+   background: #DA22FF
+   background: -webkit-linear-gradient(to right, #9733EE, #DA22FF)
+   background: linear-gradient(to right, #9733EE, #DA22FF)
+   .line
+      margin-top: 5%
+      .subIndex03
+         @include responsive_system(3,6,6,12)
+         padding: 1.5% 0% 1.5% 0%
+         .bioCard
+            width: 80%
+            height: 300px
+            margin-top: 5%
+            margin-bottom: 30%
+            padding: 0% 5% 0% 5% !important
+            background: $_white
+            @extend .text-center
+            .avatar
+               width: 200px
+               height: 200px
+               position: relative
+               background:
+                  position: top
+                  size: cover
+               margin-bottom: -30%
+               @include border_radius(100%)
+               @include transform_translateY(-50%)
+               &:first-child
+                  background-image: url('../../img/team/#{$_team_01}')
+            .socialIcon
+               @extend .transitions
+               @include responsive_system(4,4,4,4)
+               cursor: pointer
+               height: 35px !important
+               background:
+                  size: 30%
+                  repeat: no-repeat
+               &:first-child
+                  background:
+                     position: right
+                     image: url('../../img/index03/#{$_1_social_icon}.svg')
+               &:nth-child(2)
+                  background:
+                     position: center
+                     image: url('../../img/index03/#{$_2_social_icon}.svg')
+               &:last-child
+                  background:
+                     position: left
+                     image: url('../../img/index03/#{$_3_social_icon}.svg')
+               &:hover
+                  background-size: 25%
+            h3
+               max-height: 53px !important
+               height: 53px !important
+               overflow: hidden
+               &:first-letter
+                  text-transform: uppercase
+//+++++++++++++++++++++End of Index03++++++++++++++//
+
+//++++++++++++++++++++++++Index04++++++++++++++++++//
+//+++++++++++++++++++++End of Index04++++++++++++++//
+
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ RESPONSIVE COND. ]-------------------------//
+@media screen and (min-width:1921px)
+@media screen and (max-width:1920px) and (min-width:1621px)
+   header
+      img
+         &:first-child
+            width: 500% !important
+            top: 10% !important
+            left: 20% !important
+            @include transform_translateX(15%)
+            @include transform_translateY(10%)
+         &:last-child
+            width: 6% !important
+            top: 55% !important
+            left: 48% !important
+@media screen and (max-width:1620px) and (min-width:1380px)
+@media screen and (max-width:1379px) and (min-width:1280px)
+@media screen and (max-width:1279px) and (min-width:1071px)
+@media screen and (max-width:1070px) and (min-width: 980px)
+   header
+      img
+         &:first-child
+            width: 60% !important
+            top: 10%
+            left: 20% !important
+            @include transform_translateX(15%)
+            @include transform_translateY(10%)
+         &:last-child
+            width: 6% !important
+            top: 55% !important
+            left: 48% !important
+@media screen and (max-width:979px) and (min-width: 751px)
+   header
+      img
+         &:first-child
+            width: 60% !important
+            top: 10%
+            left: 20% !important
+            @include transform_translateX(15%)
+            @include transform_translateY(10%)
+         &:last-child
+            width: 6% !important
+            top: 55% !important
+            left: 48% !important
+//@media screen and (max-width: 750px) and (min-width: 700px)
+//@media screen and (max-width: 699px) and (min-width: 500px)
+//@media screen and (max-width:499px) and (min-width:360px)
+//@media screen and (max-width:359px)
+//@media screen and (max-width:1095px)
+//-------------------------------------------------------------------------------//
