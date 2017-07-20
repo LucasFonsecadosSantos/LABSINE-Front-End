@@ -83,24 +83,24 @@ body
 
 //----------------------------------[ MIXINS ]-----------------------------------//
 @mixin transform_translateX($param)
-   transform: translateX($param)
-   -o-transform: translateX($param)
-   -ms-transform: translateX($param)
-   -moz-transform: translateX($param)
-   -webkit-transform: translateX($param)
+   transform:           translateX($param)
+   -o-transform:        translateX($param)
+   -ms-transform:       translateX($param)
+   -moz-transform:      translateX($param)
+   -webkit-transform:   translateX($param)
 
 @mixin transform_translateY($param)
-   transform: translateY($param)
-   -o-transform: translateY($param)
-   -ms-transform: translateY($param)
-   -moz-transform: translateY($param)
-   -webkit-transform: translateY($param)
+   transform:           translateY($param)
+   -o-transform:        translateY($param)
+   -ms-transform:       translateY($param)
+   -moz-transform:      translateY($param)
+   -webkit-transform:   translateY($param)
 
 @mixin border_radius($param)
-   border-radius: $param
-   -o-border-radius: $param
-   -ms-border-radius: $param
-   -moz-border-radius: $param
+   border-radius:         $param
+   -o-border-radius:      $param
+   -ms-border-radius:     $param
+   -moz-border-radius:    $param
    -webkit-border-radius: $param
 
 @mixin gradient_background($param1, $param2, $param3)
@@ -113,21 +113,21 @@ body
 
 @mixin horizontal_div_divider_1($param1, $param2)
    border-bottom: 100vh $param1 solid
-   border-top: 0vh solid transparent 
-   border-right: $param2 20vw solid
-   border-left: 0px $param2 solid
+   border-top:    0vh solid transparent 
+   border-right:  $param2 20vw solid
+   border-left:   0px $param2 solid
 
 @mixin horizontal_div_divider_2($param1, $param2)
    border-bottom: 0vh solid transparent
-   border-top: 100vh $param1 solid
-   border-right: 0px $param2 solid
-   border-left: $param2 20vw solid
+   border-top:    100vh $param1 solid
+   border-right:  0px $param2 solid
+   border-left:   $param2 20vw solid
 
 @mixin filter($param)
-   filter: $param
-   -o-filter: $param
-   -ms-filter: $param
-   -moz-filter: $param
+   filter:         $param
+   -o-filter:      $param
+   -ms-filter:     $param
+   -moz-filter:    $param
    -webkit-filter: $param
 
 @mixin responsive_system($param1, $param2, $param3, $param4)
@@ -144,31 +144,31 @@ body
 h1
    font:
       family: $_title
-      size: $_size_h1
+      size:   $_size_h1
       weight: 300
    color: $_blue
 h2
    font:
       family: $_title
-      size: $_size_h2
+      size:   $_size_h2
       weight: 800
-   color: $_blue
+   color:  $_blue
    margin: 0px !important
    &:first-letter
       text-transform: uppercase
 h3
    font:
       family: $_title
-      size: $_size_h3 !important
+      size:   $_size_h3 !important
       weight: 400
-   color: $_blue
+   color:      $_blue
    text-align: center
 h4
    font:
       family: $_title
-      size: $_size_h4
+      size:   $_size_h4
       weight: 800
-   color: $_white
+   color:      $_white
    text-align: center
 h5
 p 
@@ -176,7 +176,7 @@ p
    font:
       family: $_text1
       weight: 400
-      size: $_size_p
+      size:   $_size_p
 label
 a
 //-------------------------------------------------------------------------------//
@@ -186,25 +186,41 @@ a
 
 
 //-----------------------------------[ FORMS ]-----------------------------------//
-input
+input, textarea
+   @extend .transitions
+   @include border_radius(7px)
+   outline:    none
+   margin:     2% 0% 0% 0%
+   padding:    2%
+   background: none
+   border:     solid 2px $_white //#C33764
+   width:      70% !important
+   font:
+      family: $_text2
+      size:   1.5em
+   color: $_white !important
+   &[type="name"]
+      text-transform: capitalize
+
 button
    @extend .transitions
-   background: transparent 
-   border: solid 3px #FFF //#381f75
-   @include border_radius(8px)
-   padding: 5%
+   background: $_white
+   margin:     2% 0% 0% 0%
+   padding:    2% !important
+   border:     none
    outline: none
-   cursor: pointer
-   text-transform: uppercase
+   @include border_radius(7px)
    font:
-      family: $_title
-      color: $_white
-      size: $_font_button_size
-      weight: 400
+      family: $_text2
+      size:   1.8em
+   color: $_blue !important
    &:hover
       @extend .transitions
-      border: solid 5px #381f75
-      
+      background: darken($_white, 10)
+.invertColor
+   background: #C33764
+   &:hover
+      background: darken(#C33764, 10)
       
 //-------------------------------------------------------------------------------//
 
@@ -236,7 +252,7 @@ button
 .titleSection
    @extend .line
    @extend .text-left
-   margin: 0px !important
+   margin:  0px !important
    padding: 0px 0px 2% 0px !important
 
 .blue
@@ -257,43 +273,43 @@ button
 
 //+++++++++++++++++++++Header++++++++++++++++++++++//
 header
-   height: auto
+   height:     auto
    min-height: #{$_heigh_header}vh
-   overflow: hidden
+   overflow:   hidden
    .header01
+      @extend .text-center
+      z-index:  100
+      position: absolute
+      top:      15%
+      display:  table
       img
-         z-index: 100 !important
-         position: absolute
          @extend .img-responsive
          &:first-child
-            width: 30% !important
-            top: 10% !important
-            left: 35% !important
-            @include transform_translateX(35%)
-            @include transform_translateY(10%)
+            @extend .img-responsive
+            position:       relative 
+            vertical-align: middle !important
+            width:          30% !important
+            top:            10% !important
          &:last-child
             @extend .transitions
-            width: 3% !important
-            transform: rotate(90deg)
-            top: 75% !important
-            left: 49% !important
+            width:      3% !important
+            transform:  rotate(90deg)
+            margin-top: 3%
             &:hover
                @extend .transitions
                cursor: pointer
-               //width: 3.3%
-               top: 76%
 
    .navigator
-      margin: 0px !important
       @include border_radius(0px)
+      margin:  0px !important
       z-index: 101 !important
-      border: 0px
+      border:  0px
       background: transparent
       .firstMenu
-         background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
-         background: linear-gradient(to left, #C33764 , #1D2671) !important
-         background: #C33764
-         border-bottom-left-radius: $_radius_size !important
+         background:                 -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+         background:                 linear-gradient(to left, #C33764 , #1D2671) !important
+         background:                 #C33764
+         border-bottom-left-radius:  $_radius_size !important
          border-bottom-right-radius: $_radius_size !important
          li
             a 
@@ -307,10 +323,10 @@ header
       .navbar-brand
          width: 150px
          background: 
-            image: url('../../img/header/logo.png')
-            size: 70%
+            image:    url('../../img/header/logo.png')
+            size:     70%
             position: center 
-            repeat: no-repeat
+            repeat:   no-repeat
       li
          a 
             font:
@@ -320,67 +336,110 @@ header
 
    
    canvas
-      height: auto
-      display: block
-      min-height: #{$_heigh_header}vh
+      height:         auto
+      display:        block
+      min-height:     #{$_heigh_header}vh
       vertical-align: bottom
-      position: relative
-      background: #8e9eab
-      background: -webkit-linear-gradient(to left, #8e9eab , #eef2f3)
-      background: linear-gradient(to left, #8e9eab , #eef2f3)
-      z-index: 99 !important
+      position:       relative
+      background:     #8e9eab
+      background:     -webkit-linear-gradient(to left, #8e9eab , #eef2f3)
+      background:     linear-gradient(to left, #8e9eab , #eef2f3)
+      z-index:        99 !important
 //++++++++++++++++++End of header++++++++++++++++++//
 
 //+++++++++++++++++++++Footer++++++++++++++++++++++//
 footer
-   height: auto
-   min-height: 600px
-   background: #360033
-   background: -webkit-linear-gradient(to left, #360033 , #0b8793)
-   background: linear-gradient(to left, #360033 , #0b8793)
+   height:         auto
+   min-height:     700px
+   padding-left:   $_padding_default
+   padding-right:  $_padding_default
+   padding-top:    $_padding_default
+   padding-bottom: $_padding_default !important
+   background:     #673AB7
+   background:     -webkit-linear-gradient(to right, #512DA8, #673AB7)
+   background:     linear-gradient(to right, #512DA8, #673AB7)
+   .subFooter
+      @include responsive_system(4,4,12,12)
+      img
+         @extend .img-responsive
+         width:         70%
+         margin-bottom: $_padding_default
+
+      p
+         color:     #FFF
+         font-size: 1.2em !important
+      button
+         width: 30%
+      .socialFooter
+         @extend .transitions
+         float:            right
+         margin:           0% 2% 0% 2%
+         backgrund-repeat: no-repeat !important
+         background-size:  cover
+         width:            30px
+         height:           30px
+         cursor:           pointer
+         &:nth-child(1)
+            background-image: url('../../img/footer/facebook.svg')
+         &:nth-child(2)
+            background-image: url('../../img/footer/email.svg')
+         &:nth-child(3)
+            background-image: url('../../img/footer/linkedin.svg')
+         &:nth-child(4)
+            background-image: url('../../img/footer/google-plus.svg')
+          
+      &:nth-child(2)
+         @include transform_translateY(20%)
+      &:nth-child(3)
+         @include transform_translateY(18%)
+         ul li
+            list-style-type: none
 
 .copyright
-   padding: 5px
-   width: 100%
-   z-index: 1000
-   position: relative !important
-   bottom: 0px !important
    @extend .text-center
-   color: $_white !important
+   padding:    5px
+   width:      100%
+   z-index:    1000
+   position:   relative !important
+   bottom:     0px !important
    background: #606c88
    background: -webkit-linear-gradient(to left, #606c88 , #3f4c6b)
    background: linear-gradient(to left, #606c88 , #3f4c6b)
+   p
+      color:     $_white !important
+      font-size: 1.2em !important
         
 //++++++++++++++++++End of Footer++++++++++++++++++//
 
 //+++++++++++++++++++++Index01+++++++++++++++++++++//
 #index01
    @extend .row
-   height: auto
+   height:     auto
    min-height: #{$_heigh_index01}vh
    //.divideIndex01
       @include responsive_system(2,2,2,2)
-      height: 100vh
-      border-top: 100vh solid $_white
-      border-left: 0px solid $_white
+      height:       100vh
+      border-top:   100vh solid $_white
+      border-left:  0px solid $_white
       border-botom: 49vh solid #f00 !important
-      z-index: 100
+      z-index:      100
       border-right: 200px solid #000
    .subIndex01
       height: #{$_heigh_index01}vh
-      @include responsive_system(6,6,6,6) 
+      @include responsive_system(6,6,12,12) 
       img
          @extend .img-responsive
-         width: 60%
          @include transform_translateY(90%)
+         width: 60%
       &:first-child
-         z-index: 80
-         background: #1D2671
          @include horizontal_div_divider_1(#1D2671,$_white)
-         
+         @extend .hidden-xs
+         @extend .hidden-sm
+         z-index:    80
+         background: #1D2671
       &:last-child 
          background: $_white
-         z-index: 100
+         z-index:    100
          div
             @extend .line
             @include transform_translateY(190%)
@@ -390,19 +449,19 @@ footer
 //+++++++++++++++++++++++Index Vish++++++++++++++++//
 #indexVish
    @extend .row
-   height: auto
+   height:     auto
    min-height: #{$_heigh_index01}vh
    .subIndexVish
       height: #{$_heigh_index01}vh 
       img
          @extend .img-responsive
-         width: 60%
          @include transform_translateY(-200%)
+         width: 60%
       &:first-child
          @include responsive_system(6,6,6,12)
          background: $_white
-         z-index: 100
-         border: none
+         z-index:    100
+         border:     none
          div
             @extend .line
             @include transform_translateY(100%)
@@ -412,69 +471,99 @@ footer
             &:first-letter
                margin-left: 40px
       &:last-child 
-         z-index: 80
-         background: #1D2671
          @include horizontal_div_divider_2(#1D2671,$_white)
          @include responsive_system(6,6,6,6)
          @extend .hidden-xs
+         @extend .hidden-sm
+         z-index:    80
+         background: #1D2671
 //++++++++++++++++++++End of Index Vish++++++++++++//
 
 //+++++++++++++++++++++++++Index02+++++++++++++++++//
 #index02
    @extend .line
-   height: auto
+   height:     auto
    min-height: #{$_heigh_index02}vh
-   padding: $_padding_default
+   padding:    $_padding_default
    .line
       .subIndex02
-         @include responsive_system(3,3,6,12)
+         @include responsive_system(3,6,6,12)
          @extend .text-center
-         height: 50vh
+         min-height: 50vh
+         height: auto
          z-index: 1
-         //padding: $_padding_default
+         //padding: $_padding_default 
          h2
             @include transform_translateY(10%)
          .projectCell
             @extend .transitions
             background: #673AB7
+            margin-top:    5%
+            margin-bottom: 30%
             background: -webkit-linear-gradient(to right, #512DA8, #673AB7)
             background: linear-gradient(to right, #512DA8, #673AB7)
-            position: relative
-            width:  80%
-            height: 400px
-            z-index: 10
-            overflow: hidden
+            position:   relative
+            width:      80%
+            height:     400px
+            z-index:    10
+            overflow:   hidden
             .informations
-               width: 80%
+               width:    80%
                position: absolute
-               left: 10%
-               bottom: 0%
+               left:     10%
+               bottom:   10%
                h3
-                  height: 58px !important
+                  height:        58px !important
                   margin-bottom: 6% !important
-                  overflow: hidden
+                  overflow:      hidden
                button
                   
             .avatarProject
-               padding: none
+               padding:  none
                position: absolute
-               width: 100%
-               height: 200px
+               width:    100%
+               height:   50%//200px
                overflow: hidden
                background:
-                  color: transparent
+                  color:    transparent
                   position: center
-                  size: cover !important
-                  repeat: no-repeat
-               //border-right: solid transparent 380px
-               
-               
+                  size:     cover !important
+                  repeat:   no-repeat
+               //border-right: solid transparent 380px 
             h4
                @include transform_translateY(300%)
       .project_01
          background: url('../../img/index03/#{$_project_01}')
          &:hover
-            
+            -webkit-filter: blur(1px)
+      .project_02
+         background: url('../../img/index03/#{$_project_02}')
+         &:hover
+            -webkit-filter: blur(1px)
+      .project_03
+         background: url('../../img/index03/#{$_project_03}')
+         &:hover
+            -webkit-filter: blur(1px)
+      .project_04
+         background: url('../../img/index03/#{$_project_04}')
+         &:hover
+            -webkit-filter: blur(1px)
+      .project_05
+         background: url('../../img/index03/#{$_project_05}')
+         &:hover
+            -webkit-filter: blur(1px)
+      .project_06
+         background: url('../../img/index03/#{$_project_06}')
+         &:hover
+            -webkit-filter: blur(1px)
+      .project_07
+         background: url('../../img/index03/#{$_project_07}')
+         &:hover
+            -webkit-filter: blur(1px)
+      .project_08
+         background: url('../../img/index03/#{$_project_08}')
+         &:hover
+            -webkit-filter: blur(1px)
       .auxPadding
          padding: 2% 3% 2% 2%
 //+++++++++++++++++++++End of Index02++++++++++++++//
@@ -483,7 +572,7 @@ footer
 #index03
    height: auto
    //min-height: #{$_heigh_index03}vh
-   padding: $_padding_default
+   padding:    $_padding_default
    background: #DA22FF
    background: -webkit-linear-gradient(to right, #9733EE, #DA22FF)
    background: linear-gradient(to right, #9733EE, #DA22FF)
@@ -493,51 +582,80 @@ footer
          @include responsive_system(3,6,6,12)
          padding: 1.5% 0% 1.5% 0%
          .bioCard
-            width: 80%
-            height: 300px
-            margin-top: 5%
-            margin-bottom: 30%
-            padding: 0% 5% 0% 5% !important
-            background: $_white
             @extend .text-center
+            width:         80%
+            height:        310px
+            margin-top:    5%
+            margin-bottom: 30%
+            padding:       0% 5% 0% 5% !important
+            background:    $_white
+            p
+               max-height: 38px !important
+               height:     38px !important
+               overflow:   hidden
+               font-size:  1em !important
             .avatar
-               width: 200px
-               height: 200px
-               position: relative
-               background:
-                  position: top
-                  size: cover
-               margin-bottom: -30%
                @include border_radius(100%)
                @include transform_translateY(-50%)
-               &:first-child
-                  background-image: url('../../img/team/#{$_team_01}')
+               width:    200px
+               height:   200px
+               position: relative
+               margin-bottom: -30%
+               background:
+                  position: top
+                  size:     cover
+            .bio-aux
+               background-image: url('../../img/team/#{$_team_01}')
+            .bio-joao
+               background-image: url('../../img/team/#{$_team_02}')
+            .bio-william
+               background-image: url('../../img/team/#{$_team_03}')
+            .bio-heitor
+               background-image: url('../../img/team/#{$_team_04}')
+            .bio-rodrigo
+               background-image: url('../../img/team/#{$_team_05}')
+            .bio-celso
+               background-image: url('../../img/team/#{$_team_06}')
+            .bio-celso
+               background-image: url('../../img/team/#{$_team_07}')
+            .bio-andrey
+               background-image: url('../../img/team/#{$_team_07}')
+            .bio-bianca
+               background-image: url('../../img/team/#{$_team_08}')
+            .bio-francisco
+               background-image: url('../../img/team/#{$_team_09}')
+            .aux2
+               background-image: url('../../img/team/#{$_team_10}')
+            .bio-renan
+               background-image: url('../../img/team/#{$_team_11}')
+            .bio-victor
+               background-image: url('../../img/team/#{$_team_12}')
             .socialIcon
                @extend .transitions
                @include responsive_system(4,4,4,4)
                cursor: pointer
                height: 35px !important
                background:
-                  size: 30%
+                  size:   30%
                   repeat: no-repeat
                &:first-child
                   background:
                      position: right
-                     image: url('../../img/index03/#{$_1_social_icon}.svg')
+                     image:    url('../../img/index03/#{$_1_social_icon}.svg')
                &:nth-child(2)
                   background:
                      position: center
-                     image: url('../../img/index03/#{$_2_social_icon}.svg')
+                     image:    url('../../img/index03/#{$_2_social_icon}.svg')
                &:last-child
                   background:
                      position: left
-                     image: url('../../img/index03/#{$_3_social_icon}.svg')
+                     image:    url('../../img/index03/#{$_3_social_icon}.svg')
                &:hover
                   background-size: 25%
             h3
                max-height: 53px !important
-               height: 53px !important
-               overflow: hidden
+               height:     53px !important
+               overflow:   hidden
                &:first-letter
                   text-transform: uppercase
 //+++++++++++++++++++++End of Index03++++++++++++++//
@@ -552,52 +670,368 @@ footer
 
 
 //----------------------------------[ RESPONSIVE COND. ]-------------------------//
-@media screen and (min-width:1921px)
-@media screen and (max-width:1920px) and (min-width:1621px)
+
+//@media screen and (min-width: 1921px)
+
+
+@media screen and (max-width: 1750px) and (min-width: 1550px)
    header
+      .header01
+         transform: scale(1) !important
+         top: 20% !important
+
+
+@media screen and (max-width: 1549px) and (min-width: 1350px)
+   header
+      .header01
+         transform: scale(1) !important
+         top: 20% !important
+   #index01
+      min-height: 50vh !important
+      max-height: 50vh !important
+      overflow: hidden !important
+      .subIndex01
+         img
+            @include transform_translateY(50%)
+         &:first-child
+            border-bottom: 100vh #1D2671 solid !important
+            border-top:    0vh solid transparent !important
+            border-right:  $_white 20vw solid !important
+            border-left:   0px $_white solid !important
+         &:last-child
+            div
+               @include transform_translateY(70%)
+   #indexVish
+      max-height: 50vh !important
+      overflow: hidden !important
+      min-height: 50vh !important
+      .subIndexVish
+         &:first-child
+            div
+               margin-top: 10%
+               @include transform_translateX(0%)
+         &:last-child
+            border-bottom: 0vh solid transparent
+            border-top:    100vh #1D2671 solid
+            border-right:  0px $_white solid
+            border-left:   $_white 20vw solid
+            img
+               @include transform_translateY(-360%)
+   h1
+      font-size: 2em !important
+   p
+      font-size: 1.2em !important
+
+@media screen and (max-width: 1349px) and (min-width: 1200px)
+   header
+      .header01
+         transform: scale(1) !important
+         top: 20% !important
+   #index01
+      min-height: 50vh !important
+      max-height: 50vh !important
+      overflow: hidden !important
+      .subIndex01
+         img
+            @include transform_translateY(50%)
+         &:first-child
+            border-bottom: 100vh #1D2671 solid !important
+            border-top:    0vh solid transparent !important
+            border-right:  $_white 20vw solid !important
+            border-left:   0px $_white solid !important
+         &:last-child
+            div
+               @include transform_translateY(70%)
+   #indexVish
+      max-height: 50vh !important
+      overflow: hidden !important
+      min-height: 50vh !important
+      .subIndexVish
+         &:first-child
+            div
+               margin-top: 10%
+               @include transform_translateX(0%)
+         &:last-child
+            border-bottom: 0vh solid transparent
+            border-top:    100vh #1D2671 solid
+            border-right:  0px $_white solid
+            border-left:   $_white 20vw solid
+            img
+               @include transform_translateY(-360%)
+   h1
+      font-size: 2em !important
+   p
+      font-size: 1.2em !important
+
+@media screen and (max-width: 1199px) and (min-width: 992px)
+   h1
+      font-size: 2em !important
+   p
+      font-size: 1.2em !important
+   header
+      .header01
+         transform: scale(1) !important
+         top: 30% !important
+   #index01
+      min-height: 50vh !important
+      max-height: 50vh !important
+      overflow: hidden !important
+      .subIndex01
+         img
+            @include transform_translateY(70%)
+         &:first-child
+            border-bottom: 100vh #1D2671 solid !important
+            border-top:    0vh solid transparent !important
+            border-right:  $_white 20vw solid !important
+            border-left:   0px $_white solid !important
+         &:last-child
+            div
+               @include transform_translateY(70%)
+   #indexVish
+      max-height: 50vh !important
+      overflow: hidden !important
+      min-height: 50vh !important
+      .subIndexVish
+         &:first-child
+            div
+               margin-top: 10%
+               @include transform_translateX(0%)
+         &:last-child
+            border-bottom: 0vh solid transparent
+            border-top:    100vh #1D2671 solid
+            border-right:  0px $_white solid
+            border-left:   $_white 20vw solid
+            img
+               @include transform_translateY(-420%)
+
+@media screen and (max-width: 991px) and (min-width: 768px)
+   header
+      .header01
+         transform: scale(1.5) !important
+         top: 30%
+   #index01
+      .subIndex01
+         img
+            @include transform_translateY(30%)
+         &:first-child
+         &:last-child
+            background: $_blue
+            div
+               padding: $_padding_default
+               position: absolute
+               top: 40%
+               @include transform_translateX(0%)
+               text-align: center !important
+               h1
+                  color: $_white !important
+   #indexVish
+      background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+      background: linear-gradient(to left, #C33764 , #1D2671) !important
+      background: #C33764
+      .subIndexVish
+         background: transparent !important
+         &:first-child
+            width: 100% !important
+            div
+               position: absolute
+               top: 30%
+               padding: $_padding_default
+               @include transform_translateY(0%)
+               p
+                  color: $_white !important
+         &:last-child
+            display: none !important
+   footer
+      min-height: 1300px !important
       img
          &:first-child
-            width: 500% !important
-            top: 10% !important
-            left: 20% !important
-            @include transform_translateX(15%)
-            @include transform_translateY(10%)
-         &:last-child
-            width: 6% !important
-            top: 55% !important
-            left: 48% !important
-@media screen and (max-width:1620px) and (min-width:1380px)
-@media screen and (max-width:1379px) and (min-width:1280px)
-@media screen and (max-width:1279px) and (min-width:1071px)
-@media screen and (max-width:1070px) and (min-width: 980px)
+            width: 50% !important
+      .subFooter
+         &:nth-child(3)
+            .line:first-child
+               display: none !important
+            .line:nth-child(2)
+               margin-top: 20%
+@media screen and (max-width: 767px) and (min-width: 550px)
+   #index02
+
+   .navigator
+      min-height: 80px !important
+      max-height: 80px !important
+      overflow: hidden
+      .navbar-brand
+         @include transform_translateY(-90%)
+         width: 200px
+   h1
+      font-size: 2em !important
+   p
+      font-size: 1.2em !important
    header
+      .header01
+         transform: scale(1.5) !important
+         top: 30%
+   footer
+      min-height: 1200px !important
       img
          &:first-child
-            width: 60% !important
-            top: 10%
-            left: 20% !important
-            @include transform_translateX(15%)
-            @include transform_translateY(10%)
+            width: 50% !important
+      .subFooter
+         &:nth-child(3)
+            .line:first-child
+               display: none !important
+            .line:nth-child(2)
+               margin-top: 20%
+   #index01
+      .subIndex01
+         img
+            @include transform_translateY(30%)
+         &:first-child
          &:last-child
-            width: 6% !important
-            top: 55% !important
-            left: 48% !important
-@media screen and (max-width:979px) and (min-width: 751px)
+            background: $_blue
+            div
+               padding: $_padding_default
+               position: absolute
+               top: 40%
+               @include transform_translateX(0%)
+               text-align: center !important
+               h1
+                  color: $_white !important
+   #indexVish
+      background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+      background: linear-gradient(to left, #C33764 , #1D2671) !important
+      background: #C33764
+      .subIndexVish
+         background: transparent !important
+         &:first-child
+            width: 100% !important
+            div
+               position: absolute
+               top: 30%
+               padding: $_padding_default
+               @include transform_translateY(0%)
+               p
+                  color: $_white !important
+         &:last-child
+            display: none !important
+
+@media screen and (max-width: 549px) and (min-width: 350px)
+   .navigator
+      min-height: 80px !important
+      max-height: 80px !important
+      overflow: hidden
+      .navbar-brand
+         @include transform_translateY(-90%)
+         width: 200px
+   h1
+      font-size: 2em !important
+   p
+      font-size: 1.2em !important
    header
+      .header01
+         transform: scale(2.5) !important
+         top: 30%
+   footer
+      min-height: 1000px !important
       img
          &:first-child
-            width: 60% !important
-            top: 10%
-            left: 20% !important
-            @include transform_translateX(15%)
-            @include transform_translateY(10%)
+            width: 50% !important
+      .subFooter
+         &:nth-child(3)
+            .line:first-child
+               display: none !important
+            .line:nth-child(2)
+               margin-top: 20%
+   #index01
+      .subIndex01
+         img
+            @include transform_translateY(30%)
+         &:first-child
          &:last-child
-            width: 6% !important
-            top: 55% !important
-            left: 48% !important
-//@media screen and (max-width: 750px) and (min-width: 700px)
-//@media screen and (max-width: 699px) and (min-width: 500px)
-//@media screen and (max-width:499px) and (min-width:360px)
-//@media screen and (max-width:359px)
-//@media screen and (max-width:1095px)
+            background: $_blue
+            div
+               padding: $_padding_default
+               position: absolute
+               top: 40%
+               @include transform_translateX(0%)
+               text-align: center !important
+               h1
+                  color: $_white !important
+   #indexVish
+      background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+      background: linear-gradient(to left, #C33764 , #1D2671) !important
+      background: #C33764
+      .subIndexVish
+         background: transparent !important
+         &:first-child
+            width: 100% !important
+            div
+               position: absolute
+               top: 30%
+               padding: $_padding_default
+               @include transform_translateY(0%)
+               p
+                  color: $_white !important
+         &:last-child
+            display: none !important
+
+@media screen and (max-width: 349px)
+   .navigator
+      min-height: 80px !important
+      max-height: 80px !important
+      overflow: hidden
+      .navbar-brand
+         @include transform_translateY(-90%)
+         width: 200px
+   h1
+      font-size: 2em !important
+   p
+      font-size: 1.2em !important
+   header
+      .header01
+         transform: scale(2.5) !important
+         top: 30%
+   footer
+      min-height: 1000px !important
+      img
+         &:first-child
+            width: 50% !important
+      .subFooter
+         &:nth-child(3)
+            .line:first-child
+               display: none !important
+            .line:nth-child(2)
+               margin-top: 20%
+   #index01
+      .subIndex01
+         img
+            @include transform_translateY(30%)
+         &:first-child
+         &:last-child
+            background: $_blue
+            div
+               padding: $_padding_default
+               position: absolute
+               top: 40%
+               @include transform_translateX(0%)
+               text-align: center !important
+               h1
+                  color: $_white !important
+   #indexVish
+      background: -webkit-linear-gradient(to left, #C33764 , #1D2671) !important
+      background: linear-gradient(to left, #C33764 , #1D2671) !important
+      background: #C33764
+      .subIndexVish
+         background: transparent !important
+         &:first-child
+            width: 100% !important
+            div
+               position: absolute
+               top: 15%
+               padding: $_padding_default
+               @include transform_translateY(0%)
+               p
+                  color: $_white !important
+         &:last-child
+            display: none !important
+
 //-------------------------------------------------------------------------------//
