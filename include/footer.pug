@@ -1,0 +1,97 @@
+//
+   ///////////////////////////////////////////////////////////////////////////////////
+   ///                                                                             ///
+   ///                                                                             ///
+   ///                                                                             ///
+   ///                                                                             ///
+   ///   Project by:                                                               ///
+   ///    _      _____ ______    _____ ____  __  __ _____        _   ___     __    ///
+   ///   | |    / ____|  ____|  / ____/ __ \|  \/  |  __ \ /\   | \ | \ \   / /    ///
+   ///   | |   | |    | |__    | |   | |  | | \  / | |__) /  \  |  \| |\ \_/ /     ///
+   ///   | |   | |    |  __|   | |   | |  | | |\/| |  ___/ /\ \ | . ` | \   /      ///
+   ///   | |___| |____| |      | |___| |__| | |  | | |  / ____ \| |\  |  | |       ///
+   ///   |______\_____|_|       \_____\____/|_|  |_|_| /_/    \_\_| \_|  |_|       ///
+   ///   Assessoria em tecnologia e marketing.                                     ///
+   ///                                                                             ///
+   ///                                                                             ///
+   ///                                                                             ///
+   ///                                                                             ///
+   ///////////////////////////////////////////////////////////////////////////////////
+   ///                                                                             ///
+   /// [PROJECT]: Name: LABSIN - Laboratório de Sistemas Inteligentes.             ///
+   ///            URL:  www.labsin.ufla.br                                         ///
+   ///            GIT:  <Link não disponivel. GIT server privado>                  ///
+   /// +-------------------------------------------------------------------------+ ///
+   ///                                                                             ///
+   /// [DEVELOPMENT]:  Code Developer:   Lucas Fonseca dos Santos.                 ///
+   ///                 System Developer: Lucas Fonseca dos Santos.                 ///
+   ///                 Design Creater:   Lucas Fonseca dos Santos.                 ///
+   ///                 Tester:           Lucas Fonseca dos Santos.                 ///
+   /// +-------------------------------------------------------------------------+ ///
+   ///                                                                             ///
+   /// [INFORMATIONS]: Fonts:  Raleway, 900, 400, 800, 100, 200, 300, 600          ///
+   ///                         Open Sans, 400, 800, 800Italic, 700, 300, 600       ///
+   ///                 Colors: #000000                                             ///
+   ///                         #000000                                             ///
+   ///                         #000000                                             ///
+   ///                         #000000                                             ///
+   /// +-------------------------------------------------------------------------+ ///
+   ///                                                                             ///
+   ///   Use .content to write class .container by bootstrap and .line to write    ///
+   ///   .row class by bootstrap.                                                  ///
+   ///                                                                             ///
+   ///   Use mixin grid_system() with the params: LG value, MD value, SM value,    ///
+   ///   XS value in respective order to extend grid system of bootstrap.          ///
+   ///                                                                             ///
+   ///////////////////////////////////////////////////////////////////////////////////
+//
+
+div.subFooter.text-center
+   img(src="img/header/logo-footer.png")
+   p O Laboratório de Sistemas Inteligentes e Embarcados (LABSINE) tem por função o desenvolvimento de pesquisas na área de Inteligência Computacional e a aplicação da técnica na solução de problemas em todas as áreas de conhecimento utilizando Sistemas Embarcados.
+div.subFooter.text-center
+   h3.white fale conosco
+   form(action="#", method="post", name="contact-form")
+      input(type="name", required="required", placeholder="Qual é seu nome?", alt="Campo de nome", title="Insira aqui seu nome completo.", name="name")
+      input(type="email", required="required", placeholder="Qual é seu email?", alt="Campo de email", title="Insira aqui seu email.", name="email")
+      textarea(name="msg", required="required", placeholder="O que tem a nos dizer?", alt="Campo da mensagem.", tilte="Insira aqui sua mensagem.")
+      br
+      button(type="submmit", title="Clique para enviar a mensagem.", alt="Botão para enviar mensagem.") enviar
+div.subFooter.text-right
+   div.line(style="margin-bottom: 10%;")
+      h3.white(style="text-align: right !important") Projetos em Andamento
+      ul
+        li
+          a(href="#").white 
+            p Projeto 01
+        li
+          a(href="#").white
+            p Projeto 01
+        li
+          a(href="#").white
+            p Projeto 01
+        li
+          a(href="#").white
+            p Projeto 01
+        li
+          a(href="#").white
+            p Projeto 01
+        li
+          a(href="#").white
+            p Projeto 01
+   div.line
+      a(href="fire.com")
+        div.socialFooter
+      a(href="fire.com")
+        div.socialFooter
+      a(href="fire.com")
+        div.socialFooter
+      a(href="fire.com")
+        div.socialFooter
+   div.line
+      p 
+         p.text-right Sala XXB - Primeiro Andar
+           br
+           | Departamento de Cinência da Computação
+           br
+           | Universidade Federal de Lavras - UFLA
